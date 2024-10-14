@@ -17,8 +17,12 @@ export class AppService {
       errors.push('Valid email is required.');
     }
 
-    const now = moment();
-    if (!dateTime || !moment(dateTime).isValid() || moment(dateTime).isBefore(now)) {
+    const now = new Date();
+    const selectedDate = new Date(dateTime);
+
+    if (!dateTime || isNaN(selectedDate.getTime())) {
+      errors.push('Date and time is required and must be valid.');
+    } else if (selectedDate <= now) {
       errors.push('Date and time must be in the future.');
     }
 

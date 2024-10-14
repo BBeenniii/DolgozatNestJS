@@ -23,6 +23,7 @@ export class AppController {
   }
 
   @Get('success')
+  @Render('success')
   getSuccessPage() {
     return { message: 'Your booking was successful!' };
   }
