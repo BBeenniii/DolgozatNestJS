@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Redirect } from '@nestjs/common';
+import { Controller, Get, Post, Body, Redirect, Render } from '@nestjs/common';
 import { AppService } from './app.service';
 import { BookingDto } from './booking.dto';
 
@@ -7,6 +7,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
+  @Render('booking')
   getBookingForm() {
     return { errors: null, data: null };
   }
